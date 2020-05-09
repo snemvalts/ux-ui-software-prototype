@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {RootContainer} from "./Home";
 import {Header, SubmitButton} from "../App";
 import styled from 'styled-components';
+import {useAppState} from "../hooks/useAppState";
 
 const ProductInfoContainer = styled.div`
   border-radius: 4px;
@@ -27,6 +28,8 @@ const ImageContainer = styled.div`
 `;
 
 const Product = () => {
+    const [appstate] = useAppState();
+    if (appstate.uc === 1) {
     return (
         <RootContainer>
             <Header/>
@@ -57,6 +60,39 @@ const Product = () => {
             <Link to="/checkout" style={{textDecoration: 'none'}}><SubmitButton>Add to Cart</SubmitButton></Link>
         </RootContainer>
     );
+
+    } else {
+        return (
+            <RootContainer>
+                <Header/>
+                <h2>Corona Beer</h2>
+
+
+                <ProductInfoContainer>
+                    <div>Corona beer, 0.3L</div>
+                    <div>Vendor: Corona</div>
+                    <div>Origin: Mexico</div>
+                    <div>Size: 0.3 L</div>
+                </ProductInfoContainer>
+
+                <SupplementaryInfoContainer>
+                    <span>Nutritional facts</span>
+                    <span style={{fontWeight: 'bold'}}>+</span>
+                </SupplementaryInfoContainer>
+
+                <SupplementaryInfoContainer>
+                    <span>Product description</span>
+                    <span style={{fontWeight: 'bold'}}>+</span>
+                </SupplementaryInfoContainer>
+
+                <ImageContainer>
+                    <img src="/corona.jpg" alt=""/>
+                </ImageContainer>
+
+                <Link to="/checkout" style={{textDecoration: 'none'}}><SubmitButton>Add to Cart</SubmitButton></Link>
+            </RootContainer>
+        );
+    }
 }
 
 export default Product;

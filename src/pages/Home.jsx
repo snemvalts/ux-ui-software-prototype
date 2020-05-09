@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import {Header} from "../App";
+import {useAppState} from "../hooks/useAppState";
 
 export const RootContainer = styled.div`
   padding: 16px;
@@ -51,6 +52,9 @@ const Recommendation = (props) => {
 
 
 const Home = () => {
+    const [appstate] = useAppState();
+
+    if (appstate.uc === 1) {
     return (
         <RootContainer>
             <Header/>
@@ -72,6 +76,26 @@ const Home = () => {
             </Recommendations>
         </RootContainer>
     );
+    } else {
+        return (
+            <RootContainer>
+                <Header/>
+                <Link to="/search" style={{ textDecoration: 'none', color: 'black' }}>
+                    <SearchBox>
+                        <span>Search</span>
+                        <span>🔍</span>
+                    </SearchBox>
+                </Link>
+                <RecommendationsHeader>Recommendations</RecommendationsHeader>
+                <Recommendations>
+                    <Recommendation price={1.2}>
+                        <span>Beer 1 can</span>
+
+                    </Recommendation>
+                    <Recommendation price={1.3}>Ice cream</Recommendation>
+                </Recommendations>
+            </RootContainer>)
+    }
 }
 
 export default Home;
