@@ -1,12 +1,15 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import styled from 'styled-components';
+
+export const RootContainer = styled.div``;
 
 const Home = () => {
     return (
-        <div>
+        <RootContainer>
             <h2>Home</h2>
             <Link to="/search">Search</Link>
-        </div>
+        </RootContainer>
     );
 }
 

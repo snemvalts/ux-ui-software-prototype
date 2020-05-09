@@ -9,11 +9,22 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
+import styled from "styled-components";
 
-export default function BasicExample() {
+export const MobileContainer = styled.div`
+  padding: 8px;
+  margin: 50px auto;
+  width: 320px;
+  height: 740px;
+  overflow-y: auto;
+  border-radius: 16px;
+  border: 1px solid black;
+`;
+
+export default function App() {
   return (
       <Router>
-        <div>
+        <MobileContainer>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -28,7 +39,7 @@ export default function BasicExample() {
               <Checkout />
             </Route>
           </Switch>
-        </div>
+        </MobileContainer>
       </Router>
   );
 }
