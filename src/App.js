@@ -25,7 +25,7 @@ export const MobileContainer = styled.div`
 export const Button = styled.div`
   padding: 8px 12px;
   text-transform: uppercase;
-  background: #FFB185;
+  background: #ff9b61;
   color: white;
   border-radius: 4px;
 `
@@ -37,6 +37,15 @@ const HeaderContainer = styled.div`
   align-items: center;
 `;
 
+export const SubmitButton = styled.div`
+  padding: 8px 12px;
+  text-transform: uppercase;
+  background: #57ff52;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+`;
 export const Header = () =>
     (
     <HeaderContainer>
