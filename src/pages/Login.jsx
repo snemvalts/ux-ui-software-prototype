@@ -25,6 +25,7 @@ const Login = () => {
       <h2>Login</h2>
       <label htmlFor={'phone'}>Enter your phone number:</label>
       <TextBox name={'phone'} type={'phonenumber'} placeholder={'+372 5343 231 123'}/>
+      <TextBox name={'password'} type={'password'}/>
       <Link style={{textDecoration:'none'}} to='/'><SubmitButton >Sign in</SubmitButton></Link>
     </RootContainer>
   );
