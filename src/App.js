@@ -3,23 +3,31 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useHistory
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
 import styled from "styled-components";
+import {useAppState} from "./hooks/useAppState";
 
 export const MobileContainer = styled.div`
   padding: 8px;
-  margin: 50px auto;
+  margin: 20px auto;
   width: 320px;
   height: 740px;
   overflow-y: auto;
   border-radius: 16px;
   border: 3px solid #434343;
   position: relative;
+`;
+
+export const UCSwitchContainer = styled.div`
+  width: 320px;
+  margin: 20px auto 0;
+  text-align: center;
 `;
 
 export const Button = styled.div`
@@ -46,6 +54,22 @@ export const SubmitButton = styled.div`
   color: white;
   border-radius: 4px;
 `;
+
+const UCSwitch = () => {
+    const [appstate, setAppState] = useAppState();
+    const history = useHistory();
+    const setUC = (uc) => {
+        setAppState({ uc });
+        history.push('/');
+    }
+    return (
+        <UCSwitchContainer>
+            <div>Click on UC to switch to different UC:</div>
+            <span onClick={() => setUC(1)}style={{cursor: 'pointer', fontWeight: appstate.uc === 1 ? 'bold' : 'normal'}}>UC1 </span>
+            <span onClick={() => setUC(2)} style={{cursor: 'pointer',  fontWeight: appstate.uc === 2 ? 'bold' : 'normal'}}>UC2 </span>
+        </UCSwitchContainer>
+    )
+}
 export const Header = () =>
     (
     <HeaderContainer>
@@ -57,6 +81,7 @@ export const Header = () =>
 export default function App() {
   return (
       <Router>
+        <UCSwitch/>
         <MobileContainer>
           <Switch>
             <Route exact path="/">
