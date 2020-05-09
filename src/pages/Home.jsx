@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
+import {Header} from "../App";
 
 export const RootContainer = styled.div`
   padding: 16px;
@@ -18,6 +19,7 @@ export const SearchBox = styled.div`
 const Home = () => {
     return (
         <RootContainer>
+            <Header/>
             <Link to="/search" style={{ textDecoration: 'none', color: 'black' }}>
                 <SearchBox>
                     <span>Search</span>

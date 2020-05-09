@@ -1,12 +1,15 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {RootContainer} from "./Home";
+import {Header} from "../App";
 
 const Product = () => {
     return (
-        <div>
+        <RootContainer>
+            <Header/>
             <h2>Product</h2>
             <Link to="/checkout">Checkout</Link>
-        </div>
+        </RootContainer>
     );
 }
 

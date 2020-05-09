@@ -22,6 +22,29 @@ export const MobileContainer = styled.div`
   position: relative;
 `;
 
+export const Button = styled.div`
+  padding: 8px 12px;
+  text-transform: uppercase;
+  background: #FFB185;
+  color: white;
+  border-radius: 4px;
+`
+
+const HeaderContainer = styled.div`
+  margin: 16px 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const Header = () =>
+    (
+    <HeaderContainer>
+      <Button>Login</Button>
+      <span>🛒</span>
+    </HeaderContainer>
+    );
+
 export default function App() {
   return (
       <Router>
