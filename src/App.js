@@ -41,7 +41,7 @@ export const Header = () =>
     (
     <HeaderContainer>
       <Button>Login</Button>
-      <span>🛒</span>
+      <span style={{fontSize: '24px'}}>🛒</span>
     </HeaderContainer>
     );
 
