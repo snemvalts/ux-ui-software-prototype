@@ -6,6 +6,7 @@ import {Header} from "../App";
 const Search = () => {
 
     const itemStyle = {padding: '5px'}
+    const dropDownArrow = {margin: '2px', border: 'solid black', borderWidth: '0 3px 3px 0', display: 'inline-block', padding: '3px', transform: 'rotate(45deg)'}
 
     return (
         <RootContainer>
@@ -14,7 +15,7 @@ const Search = () => {
                 <span>Tomatoes</span>
                 <span>🔍</span>
             </SearchBox>
-            <h4>Filter by: Price</h4>
+            <p>Filter by: <strong>Price</strong> <i style={dropDownArrow}></i></p>
             <Recommendations>
                 <Link to="/product" style={{textDecoration: 'none', color: 'black'}}>
                     <div style={itemStyle}>
