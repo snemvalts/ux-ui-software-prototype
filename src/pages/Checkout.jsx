@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import {RootContainer} from "./Home";
-import {Header} from "../App";
+import {Header, SubmitButton} from "../App";
 
 
 const Recommendation = (props) => {
@@ -74,7 +74,7 @@ const Checkout = () => {
             </ImageContainer>
 
             <div style={{textAlign: 'center'}}>
-                <Button>ORDER</Button>
+                <SubmitButton>ORDER</SubmitButton>
             </div>
            
         </RootContainer>
