@@ -41,7 +41,7 @@ export const Header = () =>
     (
     <HeaderContainer>
       <Button>Login</Button>
-      <span style={{fontSize: '24px'}}>🛒</span>
+      <Link to="/checkout" style={{fontSize: '24px', textDecoration: 'none'}}><span>🛒</span></Link>
     </HeaderContainer>
     );
 
