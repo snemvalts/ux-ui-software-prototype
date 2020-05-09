@@ -12,6 +12,7 @@ import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
 import styled from "styled-components";
 import {useAppState} from "./hooks/useAppState";
+import Login from "./pages/Login";
 
 export const MobileContainer = styled.div`
   padding: 8px;
@@ -73,7 +74,7 @@ const UCSwitch = () => {
 export const Header = () =>
     (
     <HeaderContainer>
-      <Button>Login</Button>
+      <Link to="/login" style={{textDecoration: 'none'}}><Button>Login</Button></Link>
       <Link to="/checkout" style={{fontSize: '24px', textDecoration: 'none'}}><span>🛒</span></Link>
     </HeaderContainer>
     );
@@ -86,6 +87,9 @@ export default function App() {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/login">
+              <Login />
             </Route>
             <Route path="/search">
               <Search />
