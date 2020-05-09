@@ -26,7 +26,7 @@ const Recommendations = styled.div`
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 8px 8px;
-  min-height: 300px;
+  min-height: 400px;
 `;
 
 
