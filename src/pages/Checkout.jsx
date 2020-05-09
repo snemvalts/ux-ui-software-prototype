@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import {RootContainer} from "./Home";
 import {Header, SubmitButton} from "../App";
+import {useAppState} from "../hooks/useAppState";
 
 
 const Recommendation = (props) => {
@@ -53,32 +54,66 @@ const Button = styled.button `
 const Checkout = () => {
 
     const itemStyle = {padding: '5px'}
+    const [appstate]  = useAppState();
 
-    return (
-        <RootContainer>
-            <Header/>
-            <h2 style={{textAlign: 'center'}}>CHECKOUT</h2>
+    if(appstate.uc === 1){
+        return (
+            <RootContainer>
+                <Header/>
+                <h2 style={{textAlign: 'center'}}>CHECKOUT</h2>
+    
+                
+                <Recommendations>
+                    <Recommendation price={4.8} quantity={3}>Tomatoes</Recommendation>
+                    <Recommendation  price={1.5} quantity={1}>Cucumber</Recommendation>
+                    <Recommendation  price={3.0} quantity={2}>Minced meat</Recommendation>
+                </Recommendations>
+    
+    
+                <p>Please review the contents of your cart before ordering.</p>
+                <h2 style={{textAlign: 'left'}}>Payment</h2>
+    
+                <ImageContainer>
+                    <img src="/visa_maestro_paypal.png" alt=""/>
+                    <img src="/eesti_pangad.png" alt=""/>
+                </ImageContainer>
+    
+                <div style={{textAlign: 'center'}}>
+                <Link to="/" style={{textDecoration: 'none'}}><SubmitButton>ORDER</SubmitButton></Link>
+                </div>
+                <br></br>
+            </RootContainer>
+        );
+    } else {
+        return (
+            <RootContainer>
+                <Header/>
+                <h2 style={{textAlign: 'center'}}>CHECKOUT</h2>
+    
+                
+                <Recommendations>
+                    <Recommendation  price={1.5} quantity={1}>Beer</Recommendation>
+                    <Recommendation  price={3.0} quantity={2}>Ice-cream</Recommendation>
+                </Recommendations>
+    
+    
+                <p>Please review the contents of your cart before ordering.</p>
+                <h2 style={{textAlign: 'left'}}>Payment</h2>
+    
+                <ImageContainer>
+                    <img src="/visa_maestro_paypal.png" alt=""/>
+                    <img src="/eesti_pangad.png" alt=""/>
+                </ImageContainer>
+    
+                <div style={{textAlign: 'center'}}>
+                <Link to="/" style={{textDecoration: 'none'}}><SubmitButton>ORDER</SubmitButton></Link>
+                </div>
+                <br></br>
+            </RootContainer>
+        );
+    }
 
-            <Recommendations>
-                <Recommendation price={4.8} quantity={3}>Tomatoes</Recommendation>
-                <Recommendation  price={1.5} quantity={1}>Beer</Recommendation>
-                <Recommendation  price={3.0} quantity={2}>Ice-cream</Recommendation>
-
-            </Recommendations>
-            <p>Please review the contents of your cart before ordering.</p>
-            <h2 style={{textAlign: 'left'}}>Payment</h2>
-
-            <ImageContainer>
-                <img src="/visa_maestro_paypal.png" alt=""/>
-                <img src="/eesti_pangad.png" alt=""/>
-            </ImageContainer>
-
-            <div style={{textAlign: 'center'}}>
-                <SubmitButton>ORDER</SubmitButton>
-            </div>
-           
-        </RootContainer>
-    );
+  
 }
 
 export default Checkout;
