@@ -70,8 +70,6 @@ const Checkout = () => {
 
             <ImageContainer>
                 <img src="/visa_maestro_paypal.png" alt=""/>
-            </ImageContainer>
-            <ImageContainer>
                 <img src="/eesti_pangad.png" alt=""/>
             </ImageContainer>
 
