@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {RootContainer, SearchBox} from "./Home";
+import {Recommendations, RootContainer, SearchBox} from "./Home";
 import {Header} from "../App";
 
 const Search = () => {
@@ -15,8 +15,8 @@ const Search = () => {
                 <span>🔍</span>
             </SearchBox>
             <h4>Filter by: Price</h4>
-            <div style={{border: '1px solid black'}}>
-                <Link to="/product">
+            <Recommendations>
+                <Link to="/product" style={{textDecoration: 'none', color: 'black'}}>
                     <div style={itemStyle}>
                         <h4 style={{margin: 'auto', textAlign: 'center'}}>Campari Tomatoes</h4>
                         <p><strong>Price:</strong> 1.2€</p>
@@ -24,7 +24,7 @@ const Search = () => {
                         <p><strong>Origin:</strong> Italy</p>
                     </div>
                 </Link>
-                <Link to="/product">
+                <Link to="/product" style={{textDecoration: 'none', color: 'black'}}>
                     <div style={itemStyle}>
                         <h4 style={{margin: 'auto', textAlign: 'center'}}>Beefsteak Tomatoes, 2 Pack</h4>
                         <p><strong>Price:</strong> 1.5€</p>
@@ -32,7 +32,7 @@ const Search = () => {
                         <p><strong>Origin:</strong> USA</p>
                     </div>
                 </Link>
-                <Link to="/product">
+                <Link to="/product" style={{textDecoration: 'none', color: 'black'}}>
                     <div style={itemStyle}>
                         <h4 style={{margin: 'auto', textAlign: 'center'}}>Cherto Gourmet Cherry</h4>
                         <p><strong>Price:</strong> 2.1€</p>
@@ -40,7 +40,7 @@ const Search = () => {
                         <p><strong>Origin:</strong> France</p>
                     </div>
                 </Link>
-            </div>
+            </Recommendations>
         </RootContainer>
     );
 }
