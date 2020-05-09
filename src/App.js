@@ -18,7 +18,8 @@ export const MobileContainer = styled.div`
   height: 740px;
   overflow-y: auto;
   border-radius: 16px;
-  border: 1px solid black;
+  border: 3px solid #434343;
+  position: relative;
 `;
 
 export default function App() {
