@@ -64,9 +64,9 @@ const UCSwitch = () => {
     }
     return (
         <UCSwitchContainer>
-            <div>Click on UC to switch to different UC:</div>
-            <span onClick={() => setUC(1)}style={{cursor: 'pointer', fontWeight: appstate.uc === 1 ? 'bold' : 'normal'}}>UC1 </span>
-            <span onClick={() => setUC(2)} style={{cursor: 'pointer',  fontWeight: appstate.uc === 2 ? 'bold' : 'normal'}}>UC2 </span>
+            <div>Click on User scenario to switch to different User scenario:</div>
+            <div onClick={() => setUC(1)} style={{cursor: 'pointer', fontWeight: appstate.uc === 1 ? 'bold' : 'normal'}}>User scenario 1 (Elderly)</div>
+            <div onClick={() => setUC(2)} style={{cursor: 'pointer',  fontWeight: appstate.uc === 2 ? 'bold' : 'normal'}}>User scenario 2 (Middle-aged)</div>
         </UCSwitchContainer>
     )
 }
