@@ -81,7 +81,7 @@ export const Header = () =>
 
 export default function App() {
   return (
-      <Router>
+      <Router basename="/ux-ui-software-prototype/">
         <UCSwitch/>
         <MobileContainer>
           <Switch>
