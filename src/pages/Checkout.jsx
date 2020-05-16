@@ -68,6 +68,7 @@ const Checkout = () => {
                     <Recommendation  price={1.5} quantity={1}>Cucumber</Recommendation>
                     <Recommendation  price={3.0} quantity={2}>Minced meat</Recommendation>
                 </Recommendations>
+                <h2 style={{textAlign: 'left'}}>Total: 9.3€</h2>
     
     
                 <p>Please review the contents of your cart before ordering.</p>

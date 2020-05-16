@@ -41,6 +41,7 @@ const Product = () => {
                 <div>Vendor: Campari</div>
                 <div>Origin: Italy</div>
                 <div>Size: 500g</div>
+                <div>Price: 1.2€</div>
             </ProductInfoContainer>
 
             <SupplementaryInfoContainer>
@@ -57,7 +58,7 @@ const Product = () => {
                 <img src="/tomato.jpg" alt=""/>
             </ImageContainer>
 
-            <Link to="/checkout" style={{textDecoration: 'none'}}><SubmitButton>Add to Cart</SubmitButton></Link>
+            <Link to="/search" style={{textDecoration: 'none'}}><SubmitButton>Add to Cart</SubmitButton></Link>
         </RootContainer>
     );
 
