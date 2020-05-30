@@ -21,7 +21,7 @@ const Search = () => {
         return (
             <RootContainer>
                 <Header/>
-                <SearchBox>
+                <SearchBox onClick={() => alert("Searchbox functionality not implemented")}>
                     <span>Tomatoes</span>
                     <span>🔍</span>
                 </SearchBox>
