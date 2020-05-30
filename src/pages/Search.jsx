@@ -46,7 +46,7 @@ const Search = () => {
                     </form>
                 </div>}
                 <Recommendations>
-                    <SubmitButton style={{padding: '8px 8px', position: 'absolute', fontSize: '10px', top: '235px', left: '200px'}}
+                    <SubmitButton style={{padding: '8px 8px', position: 'absolute', fontSize: '10px', top: '235px', left: '200px', width:"inherit"}}
                                   onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to
                         Cart</SubmitButton>
                     <Link to="/product" style={{textDecoration: 'none', color: 'black'}}>
@@ -57,7 +57,7 @@ const Search = () => {
                             <p><strong>Origin:</strong> Italy</p>
                         </div>
                     </Link>
-                    <SubmitButton style={{padding: '8px 8px', position: 'absolute', fontSize: '10px', top: '380px', left: '200px'}}
+                    <SubmitButton style={{padding: '8px 8px', position: 'absolute', fontSize: '10px', top: '380px', left: '200px', width:"inherit"}}
                                   onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to
                         Cart</SubmitButton>
                     <Link to="/product" style={{textDecoration: 'none', color: 'black'}}>
