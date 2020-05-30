@@ -118,8 +118,8 @@ const Checkout = () => {
                 <h2 style={{textAlign: 'left'}}>Payment</h2>
     
                 <ImageContainer>
-                    <img src="/visa_maestro_paypal.png" alt=""/>
-                    <img src="/eesti_pangad.png" alt=""/>
+                    <img src={process.env.PUBLIC_URL+'/visa_maestro_paypal.png'} alt=""/>
+                    <img src={process.env.PUBLIC_URL+'/eesti_pangad.png'} alt=""/>
                 </ImageContainer>
 
                 <h2 style={{textAlign: 'left'}}>Delivery</h2>
@@ -158,8 +158,8 @@ const Checkout = () => {
                 <h2 style={{textAlign: 'left'}}>Payment</h2>
     
                 <ImageContainer>
-                    <img src="/visa_maestro_paypal.png" alt=""/>
-                    <img src="/eesti_pangad.png" alt=""/>
+                    <img src={process.env.PUBLIC_URL+'/visa_maestro_paypal.png'} alt=""/>
+                    <img src={process.env.PUBLIC_URL+'/eesti_pangad.png'} alt=""/>
                 </ImageContainer>
 
                 <h2 style={{textAlign: 'left'}}>Delivery</h2>

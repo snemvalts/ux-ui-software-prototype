@@ -55,7 +55,7 @@ const Product = () => {
             </SupplementaryInfoContainer>
 
             <ImageContainer>
-                <img src="/tomato.jpg" alt=""/>
+                <img src={process.env.PUBLIC_URL+'/tomato.jpg'} alt=""/>
             </ImageContainer>
 
             <SubmitButton onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to Cart</SubmitButton>
@@ -88,7 +88,7 @@ const Product = () => {
                 </SupplementaryInfoContainer>
 
                 <ImageContainer>
-                    <img src="/corona.jpg" alt=""/>
+                    <img src={process.env.PUBLIC_URL+'/corona.jpg'} alt=""/>
                 </ImageContainer>
 
                 <SubmitButton onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to Cart</SubmitButton>
