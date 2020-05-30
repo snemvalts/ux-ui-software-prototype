@@ -81,6 +81,20 @@ export const SubmitButton = styled.div`
   border-radius: 4px;
 `;
 
+export const CancelButton = styled.button`
+  padding: 8px 12px;
+  text-transform: uppercase;
+  background: red;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+  margin-top:8px;
+  border: none;
+  width:100%;
+  height:34px;
+`;
+
 const UCSwitch = () => {
     const [appstate, setAppState] = useAppState();
     const history = useHistory();
