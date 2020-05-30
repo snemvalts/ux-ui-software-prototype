@@ -43,7 +43,7 @@ const Recommendation = (props) => {
             {props.children}
             <div>
                 <span>€{props.price}</span>
-                <span style={{display:'inline-block',marginLeft: '16px', fontWeight: 'bold'}}>+</span>
+                <span style={{display:'inline-block',marginLeft: '16px', fontWeight: 'bold', color: '#00FF00'}}>+</span>
             </div>
         </RecommendationElement>
     )
