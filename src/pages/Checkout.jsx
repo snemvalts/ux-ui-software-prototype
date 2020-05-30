@@ -57,7 +57,7 @@ const Checkout = () => {
     const [appstate,setAppstate]  = useAppState();
 
     useEffect(() => {
-        setAppstate({...appstate, cart: 6})
+        setAppstate({...appstate, cart: appstate.uc === 1 ? 6:3})
     }, []);
 
     if(appstate.uc === 1){

@@ -46,19 +46,19 @@ const Search = () => {
                 <Recommendations>
                     <Link to="/product" style={{textDecoration: 'none', color: 'black'}}>
                         <div style={itemStyle}>
-                            <h4 style={{margin: 'auto', textAlign: 'center'}}>Campari Tomatoes</h4>
-                            <p><strong>Price:</strong> 1.2€</p>
-                            <p><strong>Vendor:</strong> Campart</p>
-                            <p><strong>Origin:</strong> Italy</p>
-                        </div>
-                    </Link>
-                    <Link to="/product" style={{textDecoration: 'none', color: 'black'}}>
-                        <div style={itemStyle}>
-                            <h4 style={{margin: 'auto', textAlign: 'center'}}>Beefsteak Tomatoes, 2 Pack</h4>
-                            <p><strong>Price:</strong> 1.5€</p>
-                            <p><strong>Vendor:</strong> Beefsteak</p>
-                            <p><strong>Origin:</strong> USA</p>
-                        </div>
+                        <h4 style={{margin: 'auto', textAlign: 'center'}}>Campari Tomatoes</h4>
+                        <p><strong>Price:</strong> 1.2€</p>
+                        <p><strong>Vendor:</strong> Campart</p>
+                        <p><strong>Origin:</strong> Italy</p>
+                    </div>
+                </Link>
+                <Link to="/product" style={{textDecoration: 'none', color: 'black'}}>
+                    <div style={itemStyle}>
+                        <h4 style={{margin: 'auto', textAlign: 'center'}}>Beefsteak Tomatoes, 2 Pack</h4>
+                        <p><strong>Price:</strong> 1.5€</p>
+                        <p><strong>Vendor:</strong> Beefsteak</p>
+                        <p><strong>Origin:</strong> USA</p>
+                    </div>
                     </Link>
                 </Recommendations>
             </RootContainer>);

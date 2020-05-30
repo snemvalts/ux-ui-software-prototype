@@ -85,7 +85,7 @@ const UCSwitch = () => {
     const [appstate, setAppState] = useAppState();
     const history = useHistory();
     const setUC = (uc) => {
-        setAppState({ uc });
+        setAppState({ uc, cart: 0});
         history.push('/');
     }
     return (
