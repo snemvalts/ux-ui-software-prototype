@@ -28,7 +28,7 @@ const ImageContainer = styled.div`
 `;
 
 const Product = () => {
-    const [appstate] = useAppState();
+    const [appstate, setAppState] = useAppState();
     if (appstate.uc === 1) {
     return (
         <RootContainer>
@@ -58,7 +58,7 @@ const Product = () => {
                 <img src="/tomato.jpg" alt=""/>
             </ImageContainer>
 
-            <Link to="/search" style={{textDecoration: 'none'}}><SubmitButton>Add to Cart</SubmitButton></Link>
+            <Link to="/search" style={{textDecoration: 'none'}}><SubmitButton onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to Cart</SubmitButton></Link>
         </RootContainer>
     );
 
@@ -90,7 +90,7 @@ const Product = () => {
                     <img src="/corona.jpg" alt=""/>
                 </ImageContainer>
 
-                <Link to="/checkout" style={{textDecoration: 'none'}}><SubmitButton>Add to Cart</SubmitButton></Link>
+                <Link to="/checkout" style={{textDecoration: 'none'}}><SubmitButton onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to Cart</SubmitButton></Link>
             </RootContainer>
         );
     }

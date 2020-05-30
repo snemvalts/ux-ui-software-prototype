@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import {RootContainer} from "./Home";
@@ -19,7 +19,7 @@ const Recommendation = (props) => {
             <div>
             <span style={{display:'inline-block',marginRight: '34px', fontWeight: 'bold'}}>{props.quantity}x</span>
             <span>€{props.price}</span>
-            <span style={{display:'inline-block',marginLeft: '16px', fontWeight: 'bold'}}>-</span>
+            <span style={{display:'inline-block',marginLeft: '16px', fontWeight: 'bold', color: '#FF0000'}}>-</span>
             </div>
         </RecommendationElement>
     )
@@ -54,7 +54,11 @@ const Button = styled.button `
 const Checkout = () => {
 
     const itemStyle = {padding: '5px'}
-    const [appstate]  = useAppState();
+    const [appstate,setAppstate]  = useAppState();
+
+    useEffect(() => {
+        setAppstate({...appstate, cart: 6})
+    }, []);
 
     if(appstate.uc === 1){
         return (
