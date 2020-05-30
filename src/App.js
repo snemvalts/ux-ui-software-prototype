@@ -111,14 +111,14 @@ const UCSwitch = () => {
     )
 }
 export const Header = () => {
-    const [appstate] = useAppState();
+    const [appstate, setAppState] = useAppState();
     const history = useHistory();
 
     return (
         <HeaderContainer>
             <BackButton onClick={() => history.goBack()}>⬅️</BackButton>
             { appstate.loggedInUser ?
-                (<span style={{fontWeight: 'bold'}}>{appstate.loggedInUser}</span>) :
+                (<span style={{fontWeight: 'bold'}} onClick={() => {alert("Logged out"); setAppState({...appstate, loggedInUser:null})}}>{appstate.loggedInUser}</span>) :
                 (<Link to="/login" style={{textDecoration: 'none'}}><Button>Login</Button></Link>)
             }
             <Link to="/checkout" style={{
