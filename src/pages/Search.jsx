@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import {Recommendations, RootContainer, SearchBox} from "./Home";
 import {Header} from "../App";
@@ -6,8 +6,16 @@ import {useAppState} from "../hooks/useAppState";
 
 const Search = () => {
     const [appstate] = useAppState();
+    const [showFilterBox, setShowFilterBox] = useState(false);
     const itemStyle = {padding: '5px'}
-    const dropDownArrow = {margin: '2px', border: 'solid black', borderWidth: '0 3px 3px 0', display: 'inline-block', padding: '3px', transform: 'rotate(45deg)'}
+    const dropDownArrow = {
+        margin: '2px',
+        border: 'solid black',
+        borderWidth: '0 3px 3px 0',
+        display: 'inline-block',
+        padding: '3px',
+        transform: 'rotate(45deg)'
+    }
 
     if (appstate.uc === 1) {
         return (
@@ -17,7 +25,24 @@ const Search = () => {
                     <span>Tomatoes</span>
                     <span>🔍</span>
                 </SearchBox>
-                <p>Filter by: <strong>Price</strong> <i style={dropDownArrow}></i></p>
+                <p onClick={() => setShowFilterBox(!showFilterBox)}>Filter by: <strong>Price, Vendor, Origin</strong> <i
+                    style={dropDownArrow}></i></p>
+                {showFilterBox && <div>
+                    <form style={{marginBottom: '10px'}}>
+                        <label>
+                            <input type='checkbox' defaultChecked='true'/>
+                            Price
+                        </label>
+                        <label>
+                            <input type='checkbox' defaultChecked='true'/>
+                            Vendor
+                        </label>
+                        <label>
+                            <input type='checkbox'defaultChecked='true'/>
+                            Origin
+                        </label>
+                    </form>
+                </div>}
                 <Recommendations>
                     <Link to="/product" style={{textDecoration: 'none', color: 'black'}}>
                         <div style={itemStyle}>
