@@ -37,6 +37,18 @@ export const Button = styled.div`
   background: #ff9b61;
   color: white;
   border-radius: 4px;
+`;
+
+export const BackButton = styled.div`
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 24px;
+  
+  &.disabled {
+    background: red;
+    opacity: 0.8;
+  }
 `
 
 const HeaderContainer = styled.div`
@@ -86,9 +98,11 @@ const UCSwitch = () => {
 }
 export const Header = () => {
     const [appstate] = useAppState();
+    const history = useHistory();
 
     return (
         <HeaderContainer>
+            <BackButton onClick={() => history.goBack()}>⬅️</BackButton>
             <Link to="/login" style={{textDecoration: 'none'}}><Button>Login</Button></Link>
             <Link to="/checkout" style={{
                 fontSize: '24px',
@@ -96,8 +110,8 @@ export const Header = () => {
                 position: 'relative'
             }}><span> <CartCounter>{appstate.cart}</CartCounter>🛒</span></Link>
         </HeaderContainer>
-    );
-}
+    )
+};
 
 export default function App() {
   return (
