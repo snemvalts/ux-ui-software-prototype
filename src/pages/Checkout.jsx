@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import {RootContainer} from "./Home";
@@ -13,13 +13,14 @@ const Recommendation = (props) => {
       justify-content: space-between;
     `;
 
+
     return (
         <RecommendationElement>
             {props.children}
             <div>
             <span style={{display:'inline-block',marginRight: '34px', fontWeight: 'bold'}}>{props.quantity}x</span>
             <span>€{props.price}</span>
-            <span style={{display:'inline-block',marginLeft: '16px', fontWeight: 'bold', color: '#FF0000'}}>-</span>
+            <span onClick={() => props.minusClicked()} style={{display:'inline-block', cursor:'pointer', marginLeft: '16px', fontWeight: 'bold', color: '#FF0000'}}>-</span>
             </div>
         </RecommendationElement>
     )
@@ -56,12 +57,42 @@ const Checkout = () => {
     const itemStyle = {padding: '5px'}
     const [appstate,setAppstate]  = useAppState();
 
+    const [cartItems, setCartItems] = useState([]);
+
+    useEffect(() => {
+        if (appstate && appstate.uc) {
+            if (appstate.uc === 1) {
+                setCartItems([
+                    {price: 4.8, quantity: 3, name: 'Tomatoes'},
+                    {price: 1.5, quantity: 1, name: 'Cucumber'},
+                    {price: 3.0, quantity: 2, name: 'Minced meat'},
+                ])
+            } else {
+                setCartItems([
+                    {price: 2.3, quantity: 1, name: 'Beer'},
+                    {price: 1.5, quantity: 2, name: 'Ice cream'},
+                ])
+            }
+        }
+    }, [appstate]);
+
     useEffect(() => {
         setAppstate({...appstate, cart: appstate.uc === 1 ? 6:3})
     }, []);
 
     function handleClick(e) {
         alert("Your order has been processed!")
+    }
+
+    const handleMinusClick = (idx) => {
+        if (cartItems[idx].quantity > 0) {
+            const newCartItems = [...cartItems];
+            newCartItems[idx].quantity = newCartItems[idx].quantity - 1;
+
+            console.log(newCartItems);
+            setAppstate({...appstate, cart: appstate.cart - 1});
+            setCartItems(newCartItems)
+        }
     }
 
     if(appstate.uc === 1){
@@ -72,9 +103,13 @@ const Checkout = () => {
     
                 
                 <Recommendations>
-                    <Recommendation price={4.8} quantity={3}>Tomatoes</Recommendation>
-                    <Recommendation  price={1.5} quantity={1}>Cucumber</Recommendation>
-                    <Recommendation  price={3.0} quantity={2}>Minced meat</Recommendation>
+                    {
+                        (cartItems.map((cartItem, idx) => (
+                            <Recommendation key={cartItem.name}
+                                            price={cartItem.price}
+                                            quantity={cartItem.quantity} minusClicked={() => alert('Feature not yet implemented')}>{cartItem.name}</Recommendation>
+                        )))
+                    }
                 </Recommendations>
                 <h2 style={{textAlign: 'left'}}>Total: 9.3€</h2>
     
@@ -90,9 +125,9 @@ const Checkout = () => {
                 <h2 style={{textAlign: 'left'}}>Delivery</h2>
                 <div>
                 <input type="radio" id="6hrs" name="vehicle1" value="Bike"></input>
-                <label for="6hrs">6 hours delivery</label><br></br>
+                <label htmlFor="6hrs">6 hours delivery</label><br></br>
                 <input type="radio" id="24hrs" name="vehicle1" value="Bike"></input>
-                <label for="24hrs">24 hours delivery</label><br></br>
+                <label htmlFor="24hrs">24 hours delivery</label><br></br>
                 </div>
     
                 <div style={{textAlign: 'center'}}>
@@ -109,8 +144,13 @@ const Checkout = () => {
     
                 
                 <Recommendations>
-                    <Recommendation  price={1.5} quantity={1}>Beer</Recommendation>
-                    <Recommendation  price={3.0} quantity={2}>Ice-cream</Recommendation>
+                    {
+                        (cartItems.map((cartItem, idx ) => (
+                            <Recommendation key={cartItem.name} price={cartItem.price}
+                                            quantity={cartItem.quantity}
+                                            minusClicked={() => alert('Feature not yet implemented')}>{cartItem.name}</Recommendation>
+                        )))
+                    }
                 </Recommendations>
     
     
@@ -125,9 +165,9 @@ const Checkout = () => {
                 <h2 style={{textAlign: 'left'}}>Delivery</h2>
                 <div>
                 <input type="radio" id="6hrs" name="vehicle1" value="Bike"></input>
-                <label for="6hrs">6 hours delivery</label><br></br>
+                <label htmlFor="6hrs">6 hours delivery</label><br></br>
                 <input type="radio" id="24hrs" name="vehicle1" value="Bike"></input>
-                <label for="24hrs">24 hours delivery</label><br></br>
+                <label htmlFor="24hrs">24 hours delivery</label><br></br>
                 </div>
     
                 <div style={{textAlign: 'center'}}>

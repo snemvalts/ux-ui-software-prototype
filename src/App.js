@@ -67,6 +67,7 @@ const CartCounter = styled.span`
     font-size: 12px;
     text-align: center;
     background: orange;
+    color: white;
     right: -6px;
     bottom: -8px;
 `;
