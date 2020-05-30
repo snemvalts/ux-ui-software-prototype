@@ -103,7 +103,10 @@ export const Header = () => {
     return (
         <HeaderContainer>
             <BackButton onClick={() => history.goBack()}>⬅️</BackButton>
-            <Link to="/login" style={{textDecoration: 'none'}}><Button>Login</Button></Link>
+            { appstate.loggedInUser ?
+                (<span style={{fontWeight: 'bold'}}>{appstate.loggedInUser}</span>) :
+                (<Link to="/login" style={{textDecoration: 'none'}}><Button>Login</Button></Link>)
+            }
             <Link to="/checkout" style={{
                 fontSize: '24px',
                 textDecoration: 'none',
