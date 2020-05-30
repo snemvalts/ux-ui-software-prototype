@@ -60,6 +60,10 @@ const Checkout = () => {
         setAppstate({...appstate, cart: appstate.uc === 1 ? 6:3})
     }, []);
 
+    function handleClick(e) {
+        alert("Your order has been processed!")
+    }
+
     if(appstate.uc === 1){
         return (
             <RootContainer>
@@ -82,9 +86,17 @@ const Checkout = () => {
                     <img src="/visa_maestro_paypal.png" alt=""/>
                     <img src="/eesti_pangad.png" alt=""/>
                 </ImageContainer>
+
+                <h2 style={{textAlign: 'left'}}>Delivery</h2>
+                <div>
+                <input type="radio" id="6hrs" name="vehicle1" value="Bike"></input>
+                <label for="6hrs">6 hours delivery</label><br></br>
+                <input type="radio" id="24hrs" name="vehicle1" value="Bike"></input>
+                <label for="24hrs">24 hours delivery</label><br></br>
+                </div>
     
                 <div style={{textAlign: 'center'}}>
-                <Link to="/" style={{textDecoration: 'none'}}><SubmitButton>ORDER</SubmitButton></Link>
+                <Link to="/" style={{textDecoration: 'none'}}><SubmitButton style={{marginTop: '20px'}} onClick={handleClick}>ORDER</SubmitButton></Link>
                 </div>
                 <br></br>
             </RootContainer>
@@ -109,9 +121,17 @@ const Checkout = () => {
                     <img src="/visa_maestro_paypal.png" alt=""/>
                     <img src="/eesti_pangad.png" alt=""/>
                 </ImageContainer>
+
+                <h2 style={{textAlign: 'left'}}>Delivery</h2>
+                <div>
+                <input type="radio" id="6hrs" name="vehicle1" value="Bike"></input>
+                <label for="6hrs">6 hours delivery</label><br></br>
+                <input type="radio" id="24hrs" name="vehicle1" value="Bike"></input>
+                <label for="24hrs">24 hours delivery</label><br></br>
+                </div>
     
                 <div style={{textAlign: 'center'}}>
-                <Link to="/" style={{textDecoration: 'none'}}><SubmitButton>ORDER</SubmitButton></Link>
+                <Link to="/" style={{textDecoration: 'none', marginTop: '100px'}}><SubmitButton style={{marginTop: '20px'}} onClick={handleClick}>ORDER</SubmitButton></Link>
                 </div>
                 <br></br>
             </RootContainer>
