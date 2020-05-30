@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {RootContainer} from "./Home";
-import {Header, SubmitButton} from "../App";
+import {CancelButton, Header, SubmitButton} from "../App";
 import styled from 'styled-components';
 import {useAppState} from "../hooks/useAppState";
 
@@ -59,6 +59,7 @@ const Product = () => {
             </ImageContainer>
 
             <Link to="/search" style={{textDecoration: 'none'}}><SubmitButton onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to Cart</SubmitButton></Link>
+            <CancelButton onClick={() => {setAppState({...appstate, cart: appstate.cart > 0 ? appstate.cart - 1 : 0}); alert("Removed from cart")}}>Remove from Cart</CancelButton>
         </RootContainer>
     );
 
@@ -91,6 +92,7 @@ const Product = () => {
                 </ImageContainer>
 
                 <Link to="/checkout" style={{textDecoration: 'none'}}><SubmitButton onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to Cart</SubmitButton></Link>
+                <CancelButton onClick={() => {setAppState({...appstate, cart: appstate.cart > 0 ? appstate.cart - 1 : 0}); alert("Removed from cart")}}>Remove from Cart</CancelButton>
             </RootContainer>
         );
     }

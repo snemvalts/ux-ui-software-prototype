@@ -12,7 +12,7 @@ export const useAppState = () => {
 }
 
 export const AppStateProvider = (props) => {
-  const [state, setState] = useState({uc: 1, cart: 0});
+  const [state, setState] = useState({uc: 1, cart: 0, loggedInUser: null});
   return (
     <AppStateContext.Provider value={[state,setState]}>
       { props.children }

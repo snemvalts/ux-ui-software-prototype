@@ -81,6 +81,20 @@ export const SubmitButton = styled.div`
   border-radius: 4px;
 `;
 
+export const CancelButton = styled.button`
+  padding: 8px 12px;
+  text-transform: uppercase;
+  background: red;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+  margin-top:8px;
+  border: none;
+  width:100%;
+  height:34px;
+`;
+
 const UCSwitch = () => {
     const [appstate, setAppState] = useAppState();
     const history = useHistory();
@@ -97,13 +111,16 @@ const UCSwitch = () => {
     )
 }
 export const Header = () => {
-    const [appstate] = useAppState();
+    const [appstate, setAppState] = useAppState();
     const history = useHistory();
 
     return (
         <HeaderContainer>
             <BackButton onClick={() => history.goBack()}>⬅️</BackButton>
-            <Link to="/login" style={{textDecoration: 'none'}}><Button>Login</Button></Link>
+            { appstate.loggedInUser ?
+                (<span style={{fontWeight: 'bold'}} onClick={() => {alert("Logged out"); setAppState({...appstate, loggedInUser:null})}}>{appstate.loggedInUser}</span>) :
+                (<Link to="/login" style={{textDecoration: 'none'}}><Button>Login</Button></Link>)
+            }
             <Link to="/checkout" style={{
                 fontSize: '24px',
                 textDecoration: 'none',
