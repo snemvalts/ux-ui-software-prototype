@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import styled from 'styled-components';
 import {Header} from "../App";
 import {useAppState} from "../hooks/useAppState";
@@ -32,18 +32,25 @@ export const Recommendations = styled.div`
 
 
 const Recommendation = (props) => {
+    const [appstate, setAppState] = useAppState();
+
     const RecommendationElement = styled.div`
       padding: 8px 6px;
+      line-height: 24px;
       display: flex;
       justify-content: space-between;
     `;
 
+    const increaseQuantity = () => {
+        setAppState({...appstate, cart: appstate.cart+1, });
+    }
+
     return (
         <RecommendationElement>
             {props.children}
-            <div>
+            <div style={{userSelect: 'none'}}>
                 <span>€{props.price}</span>
-                <span style={{display:'inline-block',marginLeft: '16px', fontWeight: 'bold', color: '#00FF00'}}>+</span>
+                <span onClick={() => increaseQuantity()} style={{display:'inline-block', cursor: 'pointer', fontSize: '24px',marginLeft: '16px', fontWeight: 'bold', color: '#00FF00'}}>+</span>
             </div>
         </RecommendationElement>
     )
