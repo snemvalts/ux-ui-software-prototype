@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import {RootContainer} from "./Home";
@@ -54,7 +54,11 @@ const Button = styled.button `
 const Checkout = () => {
 
     const itemStyle = {padding: '5px'}
-    const [appstate]  = useAppState();
+    const [appstate,setAppstate]  = useAppState();
+
+    useEffect(() => {
+        setAppstate({...appstate, cart: 6})
+    }, []);
 
     if(appstate.uc === 1){
         return (

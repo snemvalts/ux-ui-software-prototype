@@ -46,6 +46,19 @@ const HeaderContainer = styled.div`
   align-items: center;
 `;
 
+const CartCounter = styled.span`
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    text-align: center;
+    background: orange;
+    right: -6px;
+    bottom: -8px;
+`;
+
 export const SubmitButton = styled.div`
   padding: 8px 12px;
   text-transform: uppercase;
@@ -71,13 +84,20 @@ const UCSwitch = () => {
         </UCSwitchContainer>
     )
 }
-export const Header = () =>
-    (
-    <HeaderContainer>
-      <Link to="/login" style={{textDecoration: 'none'}}><Button>Login</Button></Link>
-      <Link to="/checkout" style={{fontSize: '24px', textDecoration: 'none'}}><span>🛒</span></Link>
-    </HeaderContainer>
+export const Header = () => {
+    const [appstate] = useAppState();
+
+    return (
+        <HeaderContainer>
+            <Link to="/login" style={{textDecoration: 'none'}}><Button>Login</Button></Link>
+            <Link to="/checkout" style={{
+                fontSize: '24px',
+                textDecoration: 'none',
+                position: 'relative'
+            }}><span> <CartCounter>{appstate.cart}</CartCounter>🛒</span></Link>
+        </HeaderContainer>
     );
+}
 
 export default function App() {
   return (
