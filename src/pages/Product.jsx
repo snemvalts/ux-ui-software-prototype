@@ -58,7 +58,7 @@ const Product = () => {
                 <img src="/tomato.jpg" alt=""/>
             </ImageContainer>
 
-            <Link to="/search" style={{textDecoration: 'none'}}><SubmitButton onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to Cart</SubmitButton></Link>
+            <SubmitButton onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to Cart</SubmitButton>
             <CancelButton onClick={() => {setAppState({...appstate, cart: appstate.cart > 0 ? appstate.cart - 1 : 0}); alert("Removed from cart")}}>Remove from Cart</CancelButton>
         </RootContainer>
     );
@@ -91,7 +91,7 @@ const Product = () => {
                     <img src="/corona.jpg" alt=""/>
                 </ImageContainer>
 
-                <Link to="/checkout" style={{textDecoration: 'none'}}><SubmitButton onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to Cart</SubmitButton></Link>
+                <SubmitButton onClick={() => setAppState({...appstate, cart: appstate.cart + 1})}>Add to Cart</SubmitButton>
                 <CancelButton onClick={() => {setAppState({...appstate, cart: appstate.cart > 0 ? appstate.cart - 1 : 0}); alert("Removed from cart")}}>Remove from Cart</CancelButton>
             </RootContainer>
         );

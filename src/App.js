@@ -71,7 +71,7 @@ const CartCounter = styled.span`
     bottom: -8px;
 `;
 
-export const SubmitButton = styled.div`
+export const SubmitButton = styled.button`
   padding: 8px 12px;
   text-transform: uppercase;
   background: #57ff52;
@@ -79,6 +79,10 @@ export const SubmitButton = styled.div`
   text-align: center;
   color: white;
   border-radius: 4px;
+    border: none;
+  width:100%;
+  height:34px;
+  cursor:pointer;
 `;
 
 export const CancelButton = styled.button`
@@ -93,6 +97,8 @@ export const CancelButton = styled.button`
   border: none;
   width:100%;
   height:34px;
+    cursor:pointer;
+
 `;
 
 const UCSwitch = () => {
